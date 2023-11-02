@@ -19,9 +19,13 @@ const getAllDogs = (req, res) => {
 // POST /dogs
 const createDog = (req, res) => {
   const name = req.body.name;
+  const age = req.body.age;
+  const weight = req.body.weight;
   const newDog = {
     dogId: getNewDogId(),
     name,
+    age,
+    weight
   };
   dogs.push(newDog);
   res.json(newDog);
@@ -37,9 +41,13 @@ const getDogById = (req, res) => {
 // PUT /dogs/:dogId
 const updateDog = (req, res) => {
   const name = req.body.name;
+  const age = req.body.age;
+  const weight = req.body.weight;
   const dogId = req.params.dogId;
   const dog = dogs.find((dog) => dog.dogId == dogId);
   dog.name = name;
+  dog.age = age;
+  dog.weight = weight;
   res.json(dog);
 };
 

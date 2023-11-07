@@ -1,68 +1,25 @@
 import { getImageUrl } from "./utils.js";
 
-function Profile({
-  name,
-  imageId,
-  profession,
-  awards,
-  discovery,
-  imageSize = 70,
-}) {
+function Avatar({ person, size }) {
   return (
-    <section className="profile">
-      <h2>{name}</h2>
-      <img
-        className="avatar"
-        src={getImageUrl(imageId)}
-        alt={name}
-        width={imageSize}
-        height={imageSize}
-      />
-      <ul>
-        <li>
-          <b>Profession: </b>
-          {profession}
-        </li>
-        <li>
-          <b>Awards: {awards.length} </b>
-          {awards.join(", ")}
-        </li>
-        <li>
-          <b>Discovered: </b>
-          {discovery}
-        </li>
-      </ul>
-    </section>
+    <img
+      className="avatar"
+      src={getImageUrl(person, size < 90 ? "s" : "b")}
+      alt={person.name}
+      width={size}
+      height={size}
+    />
   );
 }
 
-export default function Gallery() {
+export default function Profile() {
   return (
-    <div>
-      <h1>Notable Scientists</h1>
-      <Profile
-        className="profile"
-        imageId="szV5sdG"
-        name="Maria Skłodowska-Curie"
-        profession="physicist and chemist"
-        discovery="polonium (chemical element)"
-        awards={[
-          "Nobel Prize in Physics",
-          "Davy Medal",
-          "Matteucci Medal",
-          "Elliott Cresson Medal",
-        ]}
-      />
-      <Profile
-        className="profile"
-        imageId={"YfeOqp2"}
-        name="Katsuko Saruhashi"
-        proffesion="geochemist"
-        discovery={"Saruhashi's Table"}
-        awards={["Miyaki prize", "Tanaka prize"]}
-      >
-        /
-      </Profile>
-    </div>
+    <Avatar
+      size={40}
+      person={{
+        name: "Gregorio Y. Zara",
+        imageId: "7vQD0fP",
+      }}
+    />
   );
 }

@@ -1,19 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Book from "./Book.js";
-import booksData from "./booksData.js";
+import { recipes } from "./data.js";
+import Recipe from "./recipe.js";
 
-function App() {
+export default function RecipeList() {
   return (
-    <div className="App">
-      <h1>Book List</h1>
-      <div className="book-list">
-        {booksData.map((book) => (
-          <Book key={book.id} book={book} />
+    <div>
+      <h1>Recipes</h1>
+      <div>
+        {recipes.map((recipe) => (
+          <Recipe key={recipe.id} recipe={recipe} />
         ))}
       </div>
     </div>
   );
 }
-
-export default App;

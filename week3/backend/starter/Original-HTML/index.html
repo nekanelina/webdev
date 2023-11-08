@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"
+      integrity="sha512-c93ifPoTvMdEJH/rKIcBx//AL1znq9+4/RmMGafI/vnTFe/dKwnn1uoeszE2zJBQTS1Ck5CqSBE+34ng2PthJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="app.css" />
+    <title>Travel agency</title>
+  </head>
+  <body>
+
+    <!-- Navbar section starts -->
+      <div>
+            <nav className="navbar">
+      <div className="nav-center">
+        <div className="nav-header">
+          <img src="images/logo.svg" className="nav-logo" alt="backroads" />
+          <button type="button" className="nav-toggle" id="nav-toggle">
+            <i className="fas fa-bars"></i>
+          </button>
+        </div>
+        <ul className="nav-links" id="nav-links">
+          <li>
+            <a href="#home" className="nav-link">
+              home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="nav-link">
+              about
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="nav-link">
+              services
+            </a>
+          </li>
+          <li>
+            <a href="#tours" className="nav-link">
+              tours
+            </a>
+          </li>
+        </ul>
+        <ul className="nav-icons">
+          <li>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-icon"
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-icon"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-icon"
+            >
+              <i className="fab fa-squarespace"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar section ends -->
+
+    <!-- Hero section starts -->
+        <section className="hero" id="home">
+          <div className="hero-banner">
+            <h1>backroads app</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+              explicabo debitis est autem dicta.
+            </p>
+            <a href="#tours" className="btn hero-btn">explore tours</a>
+          </div>
+        </section>
+    <!-- Hero section ends -->
+
+    <!-- About section starts -->
+        <section className="section" id="about">
+          <div className="section-title">
+            <h2>about <span>us</span></h2>
+          </div>
+          <div className="section-center about-center">
+            <div className="about-img">
+              <img
+                src="images/about.jpeg"
+                className="about-photo"
+                alt="awesome beach"
+              />
+            </div>
+            <article className="about-info">
+              <h3>explore the difference</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aspernatur quisquam harum nam cumque temporibus explicabo
+                dolorum sapiente odio unde dolor?
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Aspernatur quisquam harum nam cumque temporibus explicabo
+                dolorum sapiente odio unde dolor?
+              </p>
+              <a href="#" className="btn">read more</a>
+            </article>
+          </div>
+        </section>
+    <!--  About section ends -->
+
+    <!--  Services section starts -->  
+        <section className="section services" id="services">
+          <div className="section-title">
+            <h2>our <span>services</span></h2>
+          </div>
+          <div className="section-center services-center">
+            <article className="service">
+              <span className="service-icon"
+                ><i className="fas fa-wallet fa-fw"></i
+              ></span>
+              <div className="service-info">
+                <h4 className="service-title">saving money</h4>
+                <p className="service-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  Asperiores, officia.
+                </p>
+              </div>
+            </article>
+            <article className="service">
+              <span className="service-icon"
+                ><i className="fas fa-tree fa-fw"></i
+              ></span>
+              <div className="service-info">
+                <h4 className="service-title">endless hiking</h4>
+                <p className="service-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  Asperiores, officia.
+                </p>
+              </div>
+            </article>
+            <article className="service">
+              <span className="service-icon"
+                ><i className="fas fa-socks fa-fw"></i
+              ></span>
+              <div className="service-info">
+                <h4 className="service-title">amazing comfort</h4>
+                <p className="service-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit
+                  Asperiores, officia.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+   <!--  services section ends -->
+
+    <!-- Tours  section starts -->       
+        <section className="section" id="tours">
+          <div className="section-title">
+            <h2>featured <span>tours</span></h2>
+          </div>
+          <div className="section-center featured-center">
+            <article className="tour-card">
+              <div className="tour-img-container">
+                <img
+                  src="images/tour-1.jpeg"
+                  className="tour-img"
+                  alt="Tibet Adventure"
+                />
+                <p className="tour-date">august 26th, 2020</p>
+              </div>
+              <div className="tour-info">
+                <div className="tour-title"><h4>Tibet Adventure</h4></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cumque vitae tempore voluptatum maxime reprehenderit eum quod
+                  exercitationem fugit, qui corporis.
+                </p>
+                <div className="tour-footer">
+                  <p>
+                    <span><i className="fas fa-map"></i></span>china
+                  </p>
+                  <p>from $2100</p>
+                  <p>6 days</p>
+                </div>
+              </div>
+            </article>
+            <article className="tour-card">
+              <div className="tour-img-container">
+                <img
+                  src="images/tour-2.jpeg"
+                  className="tour-img"
+                  alt="best of java"
+                />
+                <p className="tour-date">october 1th, 2020</p>
+              </div>
+              <div className="tour-info">
+                <div className="tour-title"><h4>best of java</h4></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cumque vitae tempore voluptatum maxime reprehenderit eum quod
+                  exercitationem fugit, qui corporis.
+                </p>
+                <div className="tour-footer">
+                  <p>
+                    <span><i className="fas fa-map"></i></span>indonesia
+                  </p>
+                  <p>from $1400</p>
+                  <p>11 days</p>
+                </div>
+              </div>
+            </article>
+            <article className="tour-card">
+              <div className="tour-img-container">
+                <img
+                  src="images/tour-3.jpeg"
+                  className="tour-img"
+                  alt="explore hong kong"
+                />
+                <p className="tour-date">september 15th, 2020</p>
+              </div>
+              <div className="tour-info">
+                <div className="tour-title"><h4>explore hong kong</h4></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cumque vitae tempore voluptatum maxime reprehenderit eum quod
+                  exercitationem fugit, qui corporis.
+                </p>
+                <div className="tour-footer">
+                  <p>
+                    <span><i className="fas fa-map"></i></span>hong kong
+                  </p>
+                  <p>from $5000</p>
+                  <p>8 days</p>
+                </div>
+              </div>
+            </article>
+            <article className="tour-card">
+              <div className="tour-img-container">
+                <img
+                  src="images/tour-4.jpeg"
+                  className="tour-img"
+                  alt="kenya highlights"
+                />
+                <p className="tour-date">december 5th, 2019</p>
+              </div>
+              <div className="tour-info">
+                <div className="tour-title"><h4>kenya highlights</h4></div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cumque vitae tempore voluptatum maxime reprehenderit eum quod
+                  exercitationem fugit, qui corporis.
+                </p>
+                <div className="tour-footer">
+                  <p>
+                    <span><i className="fas fa-map"></i></span>kenya
+                  </p>
+                  <p>from $3300</p>
+                  <p>20 days</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+   <!--  Tours section ends -->
+
+    <!-- Footer  section starts --> 
+        <footer className="section footer">
+            <ul className="footer-links" id="nav-links">
+                <li><a href="#home" className="footer-link">home</a></li>
+                <li><a href="#about" className="footer-link">about</a></li>
+                <li><a href="#services" className="footer-link">services</a></li>
+                <li><a href="#tours" className="footer-link">tours</a></li>
+            </ul>
+            <ul className="footer-icons">
+                <li>
+                    <a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="footer-icon"><i className="fab fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com" target="_blank" rel="noreferrer" className="footer-icon"><i className="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.squarespace.com/" target="_blank" rel="noreferrer" className="footer-icon"><i className="fab fa-squarespace"></i></a>
+                </li>
+            </ul>
+            <p className="copyright">copyright © travel tours company<span id="date">2023</span>. all rights reserved</p>
+        </footer>
+    <!-- Footer  section starts -->       
+
+  </body>
+</html>

@@ -6,6 +6,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import Layout from "./components/Layout";
+import Navbar from "../../../../project/pair-programming-1/src/components/Navbar";
 
 // function App() {
 //   return (
@@ -27,6 +28,7 @@ import Layout from "./components/Layout";
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

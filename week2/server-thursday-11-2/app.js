@@ -17,7 +17,7 @@ app.get("/textmessage", (req, res) => {
 //Implement an endpoint with a GET request to /htmlmessage that returns HTML content.
 
 app.get("/htmlmessage", (req, res) => {
-  res.send(`<h2>This is a simple HTML response.</h2>`);
+  res.send(`<h1>This is a simple text response.</h1>`);
 });
 
 //Implement an additional endpoint with a GET request to /info. This endpoint should return HTML that greets the user and displays the time the request was received. Hint: use template literals to generate multiline HTML page.
@@ -33,6 +33,7 @@ app.get("/jsonmessage", (req, res) => {
     message: "This is an updated JSON response.",
     timestamp: new Date(),
   };
+
   res.json(jsonData);
 });
 

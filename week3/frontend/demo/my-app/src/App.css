@@ -1,0 +1,20 @@
+.card {
+  width: fit-content;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  background: #fff;
+}
+.card-content {
+  text-align: center;
+}
+.avatar {
+  margin: 10px;
+  border-radius: 50%;
+}
+h1 {
+  margin: 5px;
+  padding: 0;
+  font-size: 24px;
+}

@@ -1,67 +1,92 @@
-import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+const apiUrl = "http://localhost:3001/api/tours";
 
 const Registration = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    try {
-      // Send a POST request to the server
-      const response = await fetch("http://localhost:3001/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    //Check if passwords match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
 
-      // Check if the request was successful
-      if (response.ok) {
-        // Registration successful, do something
-      } else {
-        // Registration failed, do something
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    const user = { email, password, name };
+
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+
+    if (!response.ok) {
+      console.log("Error");
+    }
+    if (response.ok) {
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setName("");
+
+      console.log("new user added:", json);
+      navigate("/");
     }
   };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
   return (
-    <article className="section">
-      <form className="registration" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+    <div className="login-page">
+      <h2>Register</h2>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <label htmlFor="name">Username</label>
         <input
-          type="text"
-          id="name"
+          value={name}
           name="name"
-          value={formData.name}
-          onChange={handleInputChange}
+          id="name"
+          placeholder="Username"
+          onChange={(e) => setName(e.target.value)}
         />
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email</label>
         <input
-          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="youremail@gmail.com"
           id="email"
           name="email"
-          value={formData.email}
-          onChange={handleInputChange}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="******"
+          id="password"
+          name="password"
+        />
+        <label htmlFor="confirmPassword">Confirm password</label>
+        <input
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          type="password"
+          placeholder="******"
+          id="confirmPassword"
+          name="confirmPassword"
         />
 
-        <input type="submit" value="Submit" className="submit-btn" />
+        <button className="submit-button" type="submit">
+          Register
+        </button>
       </form>
-    </article>
+    </div>
   );
 };
 

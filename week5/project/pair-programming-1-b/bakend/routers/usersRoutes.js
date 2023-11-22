@@ -1,36 +1,23 @@
 const express = require("express");
-const { checkRole } = require("../middleware/rolesMiddleware");
+const usersController = require("../controllers/usersController");
 const router = express.Router();
-const {
-  createUsers,
-  getAllUsers,
-  getUserByID,
-  updateuser,
-  putuser,
-  deleteuser,
-} = require("../controllers/usersController");
 
-// Get All service
-router.get("/", getAllUsers);
+// Get All users
+router.get("/", usersController.getUsers);
 
 // Get Single user by ID
-router.get("/:id", getUserByID);
+router.get("/:id", usersController.getUser);
 
-// Create New service
-router.post("/", createUsers);
+// Create a New user
+router.post("/", usersController.postUser);
 
-// Update service
-router.patch("/:id", updateuser);
+// Update user by ID
+router.put("/:id", usersController.putUser);
 
-// Replace service
-router.put("/:id", putuser);
+// Delete user by ID
+router.delete("/:id", usersController.deleteuser);
 
-// Delete service
-router.delete("/:id", deleteuser);
-
-// Accessible only by users with the "admin" role
-// router.post("/", checkRole("admin"), serviceController.createService);
-// router.put("/:id", checkRole("admin"), serviceController.updateservice);
-// router.delete("/:id", checkRole("admin"), serviceController.deleteservice);
+// Update user partially by ID
+router.patch("/:id", usersController.patchUser);
 
 module.exports = router;

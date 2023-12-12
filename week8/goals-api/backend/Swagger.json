@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Goals API",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/user/signup": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register User",
+        "operationId": "RegisterUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserRequest"
+              },
+              "example": {
+                "name": "bob",
+                "email": "bob@gmail.com",
+                "password": "4wa95#Cf-"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login User",
+        "operationId": "LoginUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserRequest"
+              },
+              "example": {
+                "email": "susan@gmail.com",
+                "password": "secret"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/goals": {
+      "post": {
+        "tags": ["Goals"],
+        "summary": "Create Goal",
+        "operationId": "CreateGoal",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGoalRequest"
+              },
+              "example": {
+                "title": "Sample Goal",
+                "reps": 10,
+                "load": 50
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": ["Goals"],
+        "summary": "Get All Goals",
+        "operationId": "GetAllGoals",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/goals/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "The Goal ID"
+        }
+      ],
+      "get": {
+        "tags": ["Goals"],
+        "summary": "Get Single Goal",
+        "operationId": "GetSingleGoal",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": ["Goals"],
+        "summary": "Update Goal",
+        "operationId": "UpdateGoal",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGoalRequest"
+              },
+              "example": {
+                "title": "Random Goal",
+                "reps": 1,
+                "load": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["Goals"],
+        "summary": "Delete Goal",
+        "operationId": "DeleteGoal",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterUserRequest": {
+        "title": "RegisterUserRequest",
+        "required": ["name", "email", "password"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "bob",
+          "email": "bob@gmail.com",
+          "password": "4wa95#Cf-"
+        }
+      },
+      "LoginUserRequest": {
+        "title": "LoginUserRequest",
+        "required": ["email", "password"],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "bob@gmail.com",
+          "password": "4wa95#Cf-"
+        }
+      },
+      "CreateGoalRequest": {
+        "title": "CreateGoalRequest",
+        "required": ["title", "reps", "load"],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "reps": {
+            "type": "integer"
+          },
+          "load": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "title": "Push ups",
+          "reps": 40,
+          "load": 5
+        }
+      },
+      "UpdateGoalRequest": {
+        "title": "UpdateGoalRequest",
+        "required": ["title", "reps", "load"],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "reps": {
+            "type": "integer"
+          },
+          "load": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "title": "Random Goal",
+          "reps": 4,
+          "load": 25
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": ""
+    },
+    {
+      "name": "Goals",
+      "description": ""
+    }
+  ]
+}
